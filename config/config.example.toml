@@ -65,7 +65,7 @@ bot_support_role_id = 0  # The ID used to determine whether or not the user is p
 [bot_info]
     enabled = true
     content = """
-        Business Time 👨‍💼, A bot for exchanging virtual discord business cards.
+        Business Time \u2709, A bot for exchanging virtual discord business cards.
     """
     thumbnail = ""  # A url to an image to be added to the embed
     image = ""  # A url to an image to be added to the embed
