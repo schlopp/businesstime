@@ -21,4 +21,5 @@ def is_slash_command():
         if isinstance(ctx.bot, commands.SlashContext):
             return True
         raise IsNotSlashCommand()
+
     return commands.check(predicate)
