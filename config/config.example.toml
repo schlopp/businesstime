@@ -56,6 +56,11 @@ bot_support_role_id = 0  # The ID used to determine whether or not the user is p
     donate_link = ""
     website_link = ""
 
+# Content to be included in the help command
+[help_command]
+    dm_help = false  # Whether or not the help embed should be DMd to the user
+    content = ""  # Additional content to be sent with the embed
+
 # The info command is the slash command equivelant of "help", giving all relevant data.
 [bot_info]
     enabled = true
