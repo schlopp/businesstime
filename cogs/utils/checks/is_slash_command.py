@@ -11,7 +11,7 @@ class IsNotSlashCommand(commands.CheckFailure):
 
 def is_slash_command():
     """
-    The check for whether or not the bot has processed all of its startup methods (as defined by `ctx` being an instance of :class:`discord.ext.commands.SlashContext`).
+    The check for whether or not the command is being used in a slash command (as defined by `ctx` being an instance of :class:`discord.ext.commands.SlashContext`).
 
     Raises:
         `IsNotSlashCommand`: If the command isn't being used in a slash command.
