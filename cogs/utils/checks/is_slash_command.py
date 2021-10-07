@@ -18,7 +18,7 @@ def is_slash_command():
     """
 
     async def predicate(ctx: typing.Union[commands.Context, commands.SlashContext]):
-        if isinstance(ctx.bot, commands.SlashContext):
+        if isinstance(ctx, commands.SlashContext):
             return True
         raise IsNotSlashCommand()
 
