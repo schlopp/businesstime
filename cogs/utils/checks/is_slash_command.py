@@ -24,7 +24,9 @@ def is_slash_command():
         `IsNotSlashCommand`: If the command isn't being used in a slash command.
     """
 
-    async def predicate(ctx: typing.Union[commands.Context, commands.SlashContext]) -> bool:
+    async def predicate(
+        ctx: typing.Union[commands.Context, commands.SlashContext]
+    ) -> bool:
         if isinstance(ctx, commands.SlashContext):
             return True
         raise IsNotSlashCommand(ctx)
