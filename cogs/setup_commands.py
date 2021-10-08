@@ -18,7 +18,7 @@ class SetupCommands(vbu.Cog):
 
         with io.BytesIO() as f:
             background_image_name = r"cardboard.png"
-            background_image_path = fr"images\cards\{background_image_name}"
+            background_image_path = fr"assets\images\cards\{background_image_name}"
 
             # Load background image and resize to default card size
             image: Image.Image = Image.open(background_image_path)
@@ -26,11 +26,30 @@ class SetupCommands(vbu.Cog):
 
             draw = ImageDraw.Draw(image)
             card_content = f"{ctx.author}'s test card"
-            card_content_width, card_content_height = draw.textsize(card_content)
+
+            fontsize = 5
+            font = utils.DEFAULT_FONT[fontsize]
+            card_content_width, card_content_height = draw.textsize(
+                card_content, font=font
+            )
+            while (
+                card_content_width < 0.75 * image.size[0]
+                and fontsize < utils.MAX_FONT_SIZE + 1
+            ):
+                fontsize += 1
+                font = utils.DEFAULT_FONT[fontsize]
+                card_content_width, card_content_height = draw.textsize(
+                    card_content, font=font
+                )
+
             draw.text(
-                ((utils.DEFAULT_CARD_WIDTH - card_content_width) // 2 , (utils.DEFAULT_CARD_HEIGHT - card_content_height) // 2),
+                (
+                    (utils.DEFAULT_CARD_WIDTH - card_content_width) // 2,
+                    (utils.DEFAULT_CARD_HEIGHT - card_content_height) // 2,
+                ),
                 card_content,
-                fill=(255, 255, 0),
+                fill=(0, 0, 0),
+                font=font,
             )
 
             image.save(f, "png")
